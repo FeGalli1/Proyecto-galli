@@ -1,0 +1,750 @@
+
+.pagina {
+    display: grid;
+    grid-template-columns: 300px auto 300px ;
+    grid-template-rows: repeat(3, auto);
+
+    grid-gap:4rem;
+    grid-template-areas: "titulo titulo titulo" "nav filtro filtro" ". propiedades ." "pie pie pie";
+}
+
+.pagina { 
+
+    grid-column-gap: 100px;
+    grid-row-gap: 10px;
+ 
+}
+
+.titulo {
+    grid-area: titulo;    
+    }
+    
+
+.filtro{
+    grid-area: filtro;
+    align-items: center;
+    }
+.products-list {
+    grid-area: products-list;
+    }
+.box-4 {
+    grid-area: box4;
+    background-color: red;
+    }
+.nav {
+    grid-area: nav;
+    }
+.propiedades {
+    grid-area: propiedades;
+    }
+.pie {
+    grid-area: pie;
+}
+
+@media only screen and (min-width: 700px) {
+    /* Filtro*/
+#Norte:checked ~ #imagenes .Oeste, #Norte:checked ~ #imagenes .CABA {
+    display: none;
+  }
+  
+  
+  #Oeste:checked ~ #imagenes .Norte, #Oeste:checked ~ #imagenes .CABA {
+    display: none;
+  }
+  
+  #CABA:checked ~ #imagenes .Oeste, #CABA:checked ~ #imagenes .Norte {
+    display: none;
+  }
+  #Casa:checked ~ #imagenes .Departamento, #Casa:checked ~ #imagenes .PH {
+    display: none;
+  }
+  
+  #Oeste:checked ~ #imagenes .Norte, #Oeste:checked ~ #imagenes .CABA {
+    display: none;
+  }
+  
+  #CABA:checked ~ #imagenes .Oeste, #CABA:checked ~ #imagenes .Norte {
+    display: none;
+  }
+  
+  
+  
+  ::before ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+      background: white;
+      
+      font-family: 'Open Sans', sans-serif;
+      
+  }
+  
+  .titulo {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      margin: 0px auto;
+      box-shadow: 5px 8px 12px black;
+  }
+  .contenedor {
+    display: grid;
+    justify-content:center;
+    align-content: space-between;
+  }
+
+  .contenedor .filtro input {
+    position: relative;
+    left: 37%;
+    height: 20px;
+  }
+  
+  .contenedor .filtro label {
+    color: black;
+    position: relative;
+    left: 37%;
+    height: 20px;
+  }
+  
+  .titulo img{
+      width: 100%;
+      height: 100%;
+  }
+  .titulo p {
+      font-size: 4rem;
+      color: white;
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      
+      transform: translate(-50%, -50%);
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  }
+  /*///////////////////////////////////////////////*/
+  
+  .filtro{
+      width: 100%;
+      height: 180px;
+      background-color: skyblue;
+      overflow: visible;
+      position: absolute;
+      margin: 0px auto;
+      color: aquamarine;
+  
+   
+  }
+  
+  .filtro p{
+      font-size: 1rem;
+      color: black;
+      position: absolute;
+      top: 43%;
+      right:50%;
+      transform: translate(50%, 50%);
+     
+  }
+  .filtro h1{
+      font-size: 2rem;
+      color: black;
+      position: absolute;
+      top: 1%;
+      left: 37%;
+  }
+  .filtro h2{
+      font-size: 2rem;
+      color: black;
+      position: absolute;
+      top: 100%;
+      left: 7%;
+  }
+  .filtro h3 {
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 20%;
+    left: 26%;
+  }
+  .contacto1 a {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+  
+  }
+  .contacto1 img {
+    
+    width: 120px;
+    height: 80px;
+  
+  }
+  .contacto2 a {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+  
+  }
+  .contacto2 img {
+    
+    width: 120px;
+    height: 80px;
+  
+  }
+  .contacto3 a {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+  
+  }
+  .contacto3 img {
+    
+    width: 120px;
+    height: 80px;
+  
+  }
+  .contacto4 a {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+  
+  }
+  .contacto4 img {
+    
+    width: 120px;
+    height: 80px;
+  
+  }
+  .contectos .item{
+    background-color: white;
+    border: 3px solid black;
+    width: 250px;
+    height: 100px;
+  }
+  .contectos .item  img{
+    position: absolute;
+    top: 100%;
+  }
+  
+  /* imagenes 
+  .propiedades {
+    width: 1200px;
+  margin-left: 4%;
+  margin-right: 80%;
+  
+  right: 50%;
+  
+  }*/
+  
+  
+  
+  
+  
+  
+  /* PRODUCTOS ============*/
+  
+  .products-list{
+      width:  100%;
+      display: flex;
+      flex-wrap: wrap;
+  }
+  
+  
+  .products-list .produc_item{
+      width: 30%;
+      margin-left: 3%;
+      margin-bottom: 25px;
+      box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.22);
+  
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      align-self: flex-start;
+  
+      transition: all .4s;
+  }
+  
+  .products-list .item img{
+      width: 100%;
+  }
+  
+  .products-list .item a{
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+      background: #2D3E50;
+  
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+  }
+  
+  h1 {
+      text-align: center;
+    }
+    
+    .carrusel {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    
+    .carrusel ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-width: 1030px;
+      /* max-width: 510px; */
+      scroll-behavior: smooth;
+    }
+    
+    .carrusel-fotos {
+      display: flex;
+      gap: 10px;
+      overflow: auto;
+    }
+    
+    .carrusel-fotos img {
+      background: black;
+      border: 4px solid black;
+      width: 300px;
+      height: 200px;
+      object-fit: contain;
+    }
+    
+    .carrusel-menu {
+      display: none;
+    }
+    
+    @media screen and (min-width: 500px) {
+      .carrusel-fotos {
+        overflow: hidden;
+      }
+    
+      .carrusel-fotos img {
+        width: 500px;
+        height: 400px;
+      }
+      .carrusel-menu {
+        display: block;
+      }
+      .carrusel-menu img {
+        box-sizing: border-box;
+        width: 50px;
+        height: 40px;
+        border: 10px solid black;
+      }
+      .carrusel-menu img:hover {
+        border: none;
+      }
+    }
+    
+    p {
+      text-align: center;
+    }
+    
+  
+  .nosotros iframe {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+  }
+  .nosotros p {
+    position: absolute;
+    top: 130%;
+    left: 10%;
+  }
+  
+  
+    /* pie */
+  
+    .pie{
+      width: 100%;
+      height: 180px;
+      background-color: skyblue;
+      overflow: visible;
+      position: relative;
+      margin: 0px auto;
+      color: aquamarine;
+      bottom: 100%;
+   
+  }
+  
+  .pie p{
+      font-size: 1rem;
+      color: black;
+      position: absolute;
+      top: 35%;
+      right:50%;
+      transform: translate(50%, 50%);
+     
+  }
+  .pie h1{
+      font-size: 2rem;
+      color: black;
+      position: absolute;
+      top: 25%;
+      left: 45%;
+  }
+  .pie h2{
+      font-size: 2rem;
+      color: black;
+      position: absolute;
+      top: 90%;
+      left: 7%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+
+    /* Filtro*/
+#Norte:checked ~ #imagenes .Oeste, #Norte:checked ~ #imagenes .CABA {
+    display: none;
+  }
+  
+  
+  #Oeste:checked ~ #imagenes .Norte, #Oeste:checked ~ #imagenes .CABA {
+    display: none;
+  }
+  
+  #CABA:checked ~ #imagenes .Oeste, #CABA:checked ~ #imagenes .Norte {
+    display: none;
+  }
+  #Casa:checked ~ #imagenes .Departamento, #Casa:checked ~ #imagenes .PH {
+    display: none;
+  }
+  
+  #Oeste:checked ~ #imagenes .Norte, #Oeste:checked ~ #imagenes .CABA {
+    display: none;
+  }
+  
+  #CABA:checked ~ #imagenes .Oeste, #CABA:checked ~ #imagenes .Norte {
+    display: none;
+  }
+  
+  
+  
+  ::before ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+      background: white;
+      
+      font-family: 'Open Sans', sans-serif;
+      
+  }
+  
+  .titulo {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      margin: 0px auto;
+      box-shadow: 5px 8px 12px black;
+  }
+  .contenedor {
+    display: flex;
+    justify-content:center;
+    align-content: space-between;
+  }
+  .contenedor .filtro input {
+    position: relative;
+    left: 37%;
+    height: 20px;
+  }
+  
+  .contenedor .filtro label {
+    color: black;
+    position: relative;
+    left: 37%;
+    height: 20px;
+  }
+  
+  .titulo img{
+      width: 100%;
+      height: 100%;
+  }
+  .titulo p {
+      font-size: 4rem;
+      color: white;
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      
+      transform: translate(-50%, -50%);
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  }
+  /*///////////////////////////////////////////////*/
+  
+  .filtro{
+      width: 100%;
+      height: 180px;
+      background-color: skyblue;
+      overflow: visible;
+      position: absolute;
+      margin: 0px auto;
+      color: aquamarine;
+  
+   
+  }
+  
+  .filtro p{
+      font-size: 1rem;
+      color: black;
+      position: absolute;
+      top: 43%;
+      right:50%;
+      transform: translate(50%, 50%);
+     
+  }
+  .filtro h1{
+      font-size: 2rem;
+      color: black;
+      position: absolute;
+      top: 1%;
+      left: 37%;
+  }
+  .filtro h2{
+      font-size: 2rem;
+      color: black;
+      position: absolute;
+      top: 100%;
+      left: 7%;
+  }
+  .filtro h3 {
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 20%;
+    left: 26%;
+  }
+  .contacto1 a {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+  
+  }
+  .contacto1 img {
+    
+    width: 120px;
+    height: 80px;
+  
+  }
+  .contacto2 a {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+  
+  }
+  .contacto2 img {
+    
+    width: 120px;
+    height: 80px;
+  
+  }
+  .contacto3 a {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+  
+  }
+  .contacto3 img {
+    
+    width: 120px;
+    height: 80px;
+  
+  }
+  .contacto4 a {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+  
+  }
+  .contacto4 img {
+    
+    width: 120px;
+    height: 80px;
+  
+  }
+  .contectos .item{
+    background-color: white;
+    border: 3px solid black;
+    width: 250px;
+    height: 100px;
+  }
+  .contectos .item  img{
+    position: absolute;
+    top: 100%;
+  }
+  
+  /* imagenes 
+  .propiedades {
+    width: 1200px;
+  margin-left: 4%;
+  margin-right: 80%;
+  
+  right: 50%;
+  
+  }*/
+  
+  
+  
+  
+  
+  
+  /* PRODUCTOS ============*/
+  
+  .products-list{
+      width:  100%;
+      display: flex;
+      flex-wrap: wrap;
+  }
+  
+  
+  .products-list .produc_item{
+      width: 30%;
+      margin-left: 3%;
+      margin-bottom: 25px;
+      box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.22);
+  
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      align-self: flex-start;
+  
+      transition: all .4s;
+  }
+  
+  .products-list .item img{
+      width: 100%;
+  }
+  
+  .products-list .item a{
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+      background: #2D3E50;
+  
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+  }
+  
+  h1 {
+      text-align: center;
+    }
+    
+    .carrusel {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    
+    .carrusel ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-width: 1030px;
+      /* max-width: 510px; */
+      scroll-behavior: smooth;
+    }
+    
+    .carrusel-fotos {
+      display: flex;
+      gap: 10px;
+      overflow: auto;
+    }
+    
+    .carrusel-fotos img {
+      background: black;
+      border: 4px solid black;
+      width: 300px;
+      height: 200px;
+      object-fit: contain;
+    }
+    
+    .carrusel-menu {
+      display: none;
+    }
+    
+    @media screen and (min-width: 500px) {
+      .carrusel-fotos {
+        overflow: hidden;
+      }
+    
+      .carrusel-fotos img {
+        width: 500px;
+        height: 400px;
+      }
+      .carrusel-menu {
+        display: block;
+      }
+      .carrusel-menu img {
+        box-sizing: border-box;
+        width: 50px;
+        height: 40px;
+        border: 10px solid black;
+      }
+      .carrusel-menu img:hover {
+        border: none;
+      }
+    }
+    
+    p {
+      text-align: center;
+    }
+    
+  
+  .nosotros iframe {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+  }
+  .nosotros p {
+    position: absolute;
+    top: 130%;
+    left: 10%;
+  }
+  
+  
+    /* pie */
+  
+    .pie{
+      width: 100%;
+      height: 180px;
+      background-color: skyblue;
+      overflow: visible;
+      position: relative;
+      margin: 0px auto;
+      color: aquamarine;
+      bottom: 100%;
+   
+  }
+  
+  .pie p{
+      font-size: 1rem;
+      color: black;
+      position: absolute;
+      top: 35%;
+      right:50%;
+      transform: translate(50%, 50%);
+     
+  }
+  .pie h1{
+      font-size: 2rem;
+      color: black;
+      position: absolute;
+      top: 25%;
+      left: 45%;
+  }
+  .pie h2{
+      font-size: 2rem;
+      color: black;
+      position: absolute;
+      top: 90%;
+      left: 7%;
+  }
+}

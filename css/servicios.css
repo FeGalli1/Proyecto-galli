@@ -1,0 +1,111 @@
+.vender {
+    top: 50%;
+    width: 80%;
+    height: 180px;
+    background-color: skyblue;
+    overflow: visible;
+    position: absolute;
+    margin: 0px auto;
+    color: aquamarine;
+
+}
+.vender h1{
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 20%;
+    left: 5%;  
+}
+.vender h2 {
+    font-size: 1rem;
+    color: black;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+}
+.vender a {
+    font-size: 2rem;
+    bottom: 5%;
+    right: 3%;
+    
+    position: absolute;
+}
+.vender button {
+    font-size: 1.4rem;
+    background-color: black;
+    color: white;
+}
+/*///////////////////////////*/
+.alquilerT {
+    bottom: -5%;
+    width: 80%;
+    height: 180px;
+    background-color: red;
+    overflow: visible;
+    position: absolute;
+    margin: 0px auto;
+    color: aquamarine;
+
+}
+.alquilerT h1{
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 15%;
+    left: 5%;  
+}
+.alquilerT h2 {
+    font-size: 1rem;
+    color: black;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+}
+.alquilerT a {
+    font-size: 2rem;
+    bottom: 5%;
+    right: 3%;
+    position: absolute;
+}
+.alquilerT button {
+    font-size: 1.4rem;
+    background-color: black;
+    color: white;
+}
+/*///////////////////////////////////*/
+.alquiler {
+    bottom: -36%;
+    width: 80%;
+    height: 180px;
+    background-color: yellowgreen;
+    overflow: visible;
+    position: absolute;
+    margin: 0px auto;
+    color: aquamarine;
+
+}
+.alquiler h1{
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 15%;
+    left: 5%;  
+}
+.alquiler h2 {
+    font-size: 1rem;
+    color: black;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+}
+.alquiler a {
+    font-size: 2rem;
+    bottom: 5%;
+    right: 3%;
+    position: absolute;
+}
+.alquiler button {
+    font-size: 1.4rem;
+    background-color: black;
+    color: white;
+}
