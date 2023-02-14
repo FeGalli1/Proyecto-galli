@@ -1,0 +1,95 @@
+@import "vari";
+@import "media-queris";
+/*////////GRIDS//////*/
+
+body {
+    background-color: $color-Fondo;
+    
+}
+
+.grid {
+    display: grid;   
+    grid-template-columns: $columnaPC;
+    grid-template-rows: $filaPC;
+    grid-column-gap: $columnaPC-gap;
+    grid-row-gap: $filaPC-gap;
+    background-color: $color-Fondo;
+
+    grid-template-areas: "head head head" "filtro filtro filtro" "borde main borde2" "foot foot foot";
+
+    @include tablet{
+        
+            grid-template-columns:$columnaCEL;
+            grid-template-rows: $filaCEL;
+            grid-column-gap: $columnaPC-gap;
+            grid-row-gap: $filaPC-gap;
+            background-color: $color-Fondo;
+    
+            grid-template-areas: "head head head" "filtro filtro filtro" "borde main borde2" "foot foot foot";
+            .g p{
+                font-size: $tam-letra/4;
+                color: $color-Letra;
+                text-align: center;
+                position: relative;
+            }
+    }
+
+    .a{
+        grid-area: head;
+    
+    }
+    .b{
+        grid-area: filtro;
+    }
+    
+    .d{
+        grid-area: borde;
+        img {
+            width: 100%;
+            margin: 10px;
+        }
+    }
+    .e{
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        img{
+            width: 20%;
+        }
+    }
+    .f{
+        grid-area: borde2;
+        img {
+            width: 100%;
+            margin: 10px;
+        }
+    
+    }
+    .g{
+        grid-area: foot;
+        p{
+            font-size: $tam-letra/2;
+            color: $color-Letra;
+            text-align: center;
+            position: relative;
+            margin: 10px;
+        }
+    }
+  }
+
+
+
+.col {
+    background-color: blue;
+}
+
+
+
+ @media (max-width: 945px)
+ {
+   
+   
+ }
+ 
+/*////////GRIDS//////*/
