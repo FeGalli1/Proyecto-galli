@@ -1,0 +1,41 @@
+
+@import "vari";
+
+/*////PIE//////*/
+
+.pie{
+    width: 100%;
+    height: 180px;
+    background-color: $color-Fondo;
+    overflow: visible;
+    position: relative;
+    margin: 0px auto;
+    color: aquamarine;
+    bottom: 100%;
+ 
+}
+
+.pie p{
+    font-size: 1rem;
+    color: black;
+    position: absolute;
+    top: 35%;
+    right:50%;
+    transform: translate(50%, 50%);
+   
+}
+.pie h1{
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 25%;
+    left: 45%;
+}
+.pie h2{
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    top: 90%;
+    left: 7%;
+}
+/*////FINAL PIE//////*/

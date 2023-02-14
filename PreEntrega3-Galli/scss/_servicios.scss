@@ -1,0 +1,82 @@
+@import "vari";
+
+
+/*////////Servicios//////*/
+
+.recuadro {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    overflow: visible;
+    margin: 0px auto;
+    color: $color-Fondo;
+    h1{
+        font-size: $tam-letra;
+        color: $color-Letra;
+        position: absolute;
+        top: 15px;
+        left: 5%;  
+    }
+    p{ 
+
+        font-size: $tam-letra;
+        color: $color-Fondo;
+        position: absolute;
+    
+        left: 5%;
+    }
+    p:hover{
+        color: $color-Letra;
+    }
+    a{
+        font-size: $tam-letra;
+        right: 5%;
+        top:   6px;
+        position: absolute;
+    }
+    button {
+        font-size: 1.4rem;
+        color: $color-Letra;
+    }
+}
+
+.vender {
+    @extend .recuadro;
+    background-color: rgb(123, 90, 221);
+
+}
+
+
+/*///////////////////////////*/
+.alquilerT {
+    background-color: rgb(238, 255, 0);
+    @extend .recuadro;
+}
+/*///////////////////////////////////*/
+.alquiler {
+    @extend .recuadro;
+    background-color: yellowgreen;
+}
+
+
+
+
+/*//// TRANSITION //// */
+
+.transition:hover {
+    height: 250px;
+}
+
+.boton {
+    background-color: $colot-blanco ;
+    width: 100%;
+}
+.boton:hover {
+    cursor: pointer;
+    background-image: radial-gradient(
+      rgb(0, 255, 4) 30%,
+      rgb(0, 255, 4)
+    );
+  }
+
+/*////////FINAL Servicios//////*/
