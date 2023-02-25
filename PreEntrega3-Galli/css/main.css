@@ -2,7 +2,7 @@
 /*////////Servicios//////*/
 .recuadro, .vender, .alquilerT, .alquiler {
   position: relative;
-  width: 100%;
+  width: 60%;
   height: 70px;
   overflow: visible;
   margin: 0px auto;
@@ -14,12 +14,12 @@
     top: 15px;
     left: 5%; }
   .recuadro p, .vender p, .alquilerT p, .alquiler p {
-    font-size: 2rem;
-    color: #87CEEB;
+    font-size: 0rem;
+    color: #000000;
     position: absolute;
     left: 5%; }
-  .recuadro p:hover, .vender p:hover, .alquilerT p:hover, .alquiler p:hover {
-    color: #000000; }
+  .recuadro:hover p, .vender:hover p, .alquilerT:hover p, .alquiler:hover p{
+    font-size: 2rem; }
   .recuadro a, .vender a, .alquilerT a, .alquiler a {
     font-size: 2rem;
     right: 5%;
@@ -42,7 +42,8 @@
 
 /*//// TRANSITION //// */
 .transition:hover {
-  height: 250px; }
+  height: 400px;
+ }
 
 .boton {
   background-color: #FFFFFF;
@@ -53,7 +54,7 @@
   background-image: radial-gradient(#00ff04 30%, #00ff04); }
 
 /*////////FINAL Servicios//////*/
-<<<<<<< HEAD
+
 
 .dropdown-menu a img{
   width: 100%;
@@ -64,12 +65,6 @@
 .pie {
   width: 100%;
   height: 80px;
-=======
-/*////PIE//////*/
-.pie {
-  width: 100%;
-  height: 180px;
->>>>>>> f6f18ab8efa81b61bc2b25971c2be4a6bb01a637
   background-color: #87CEEB;
   overflow: visible;
   position: relative;
@@ -101,7 +96,7 @@
 
 /*////FINAL PIE//////*/
 /*////////GRIDS//////*/
-<<<<<<< HEAD
+
 .grid {
   display: grid;
   grid-template-columns: 180px auto 180px;
@@ -110,19 +105,7 @@
   grid-row-gap: 20px;
   background-color: #87CEEB;
   grid-template-areas: "head head head" "filtro filtro filtro" "main main main" "foot foot foot"; }
-=======
-body {
-  background-color: #87CEEB; }
 
-.grid {
-  display: grid;
-  grid-template-columns: 180px auto 180px;
-  grid-template-rows: auto auto auto;
-  grid-column-gap: 100px;
-  grid-row-gap: 20px;
-  background-color: #87CEEB;
-  grid-template-areas: "head head head" "filtro filtro filtro" "borde main borde2" "foot foot foot"; }
->>>>>>> f6f18ab8efa81b61bc2b25971c2be4a6bb01a637
   @media screen and (max-width: 945) {
     .grid {
       grid-template-columns: 0% 100% 0%;
@@ -130,102 +113,50 @@ body {
       grid-column-gap: 100px;
       grid-row-gap: 20px;
       background-color: #87CEEB;
+      
       grid-template-areas: "head head head" "filtro filtro filtro" "borde main borde2" "foot foot foot"; }
       .grid .g p {
         font-size: 0.5rem;
         color: #000000;
         text-align: center;
         position: relative; } }
-<<<<<<< HEAD
+
    .a {
     grid-area: head; }
    .b {
     grid-area: filtro; }
-   .d {
-    grid-area: borde; }
-    .d img {
-      width: 100%;
-      margin: 10px; }
+
+
    .e {
     grid-area: main;
-
+    
   	}
 	.e img {
-      width: 20%; }
-    .f {
-    grid-area: borde2; }
-    .f img {
-      width: 100%;
-      margin: 10px; }
+      width: 20%; 
+    }
+    .e h4{
+      text-align: center;
+      font-size: 3rem;
+    }
     .g {
     grid-area: foot; }
     .g p {
-=======
-  .grid .a {
-    grid-area: head; }
-  .grid .b {
-    grid-area: filtro; }
-  .grid .d {
-    grid-area: borde; }
-    .grid .d img {
-      width: 100%;
-      margin: 10px; }
-  .grid .e {
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-content: space-around; }
-    .grid .e img {
-      width: 20%; }
-  .grid .f {
-    grid-area: borde2; }
-    .grid .f img {
-      width: 100%;
-      margin: 10px; }
-  .grid .g {
-    grid-area: foot; }
-    .grid .g p {
->>>>>>> f6f18ab8efa81b61bc2b25971c2be4a6bb01a637
+      background-color: #87CEEB;
+
       font-size: 1rem;
       color: #000000;
       text-align: center;
       position: relative;
       margin: 10px; }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> f6f18ab8efa81b61bc2b25971c2be4a6bb01a637
 .col {
   background-color: blue; }
 
 /*////////GRIDS//////*/
 /*//////////////////////////*/
-.carrusel {
-  display: flex;
-  width: 70%;
-  left: 10%;
-  align-content: center;
-  gap: 10px;
-  justify-content: center; }
-  .carrusel ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    max-width: 1030px;
-    /* max-width: 510px; */
-    scroll-behavior: smooth; }
 
-.carrusel-fotos {
-  display: flex;
-  gap: 10px;
-  overflow: auto; }
-  .carrusel-fotos img {
-    background: black;
-    border: 4px solid black;
-    width: 300px;
-    height: 200px;
-    object-fit: contain; }
+
 
 .carrusel-menu {
   display: none; }
@@ -235,11 +166,9 @@ body {
   height: 500px; }
 
 .contenedor {
-<<<<<<< HEAD
-  margin-left: 20px;
-=======
->>>>>>> f6f18ab8efa81b61bc2b25971c2be4a6bb01a637
   display: block;
+  align-items: center;
+  width: 100%;
   margin: 30px 0px; }
   .contenedor .filtro input {
     left: 37%;
@@ -288,124 +217,21 @@ body {
         position: absolute;
         text-align: center; } }
 
-<<<<<<< HEAD
-=======
-/* FILTO  y NAV*/
-.filtro {
-  width: 100%;
-  height: 180px;
-  background-color: skyblue;
-  overflow: visible;
-  position: absolute;
-  margin: 1px auto;
-  color: aquamarine; }
-  .filtro input {
-    position: relative;
-    left: 37%;
-    height: 20px; }
-  .filtro label {
-    color: black;
-    position: relative;
-    left: 37%;
-    height: 20px; }
-  .filtro p {
-    font-size: 1rem;
-    color: black;
-    position: absolute;
-    top: 43%;
-    right: 50%;
-    transform: translate(50%, 50%); }
-  .filtro h1 {
-    font-size: 2rem;
-    color: black;
-    position: absolute;
-    top: 1%;
-    left: 37%; }
-  .filtro h2 {
-    font-size: 2rem;
-    color: black;
-    position: absolute;
-    top: 100%;
-    left: 7%; }
-  .filtro h3 {
-    font-size: 2rem;
-    color: black;
-    position: absolute;
-    top: 20%;
-    left: 26%; }
-
-/* Propiedades */
-/* PRODUCTOS con flex ============*/
-.products-list {
-  width: 100%;
-  display: flex;
-  /* que salte el renglon y no modifique el tamaño del contenedor */
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-content: space-between; }
-  .products-list .item {
-    width: 24%;
-    margin-left: 3%;
-    margin-bottom: 25px;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.22);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: flex-start;
-    transition: all .4s; }
-    .products-list .item img {
-      width: 100%; }
-    .products-list .item a {
-      display: block;
-      width: 100%;
-      padding: 8px 0;
-      background: #2D3E50;
-      color: #fff;
-      text-align: center;
-      text-decoration: none; }
-
-h1 {
-  text-align: center; }
-
-/* Filtro  REVISAR*/
-.grid #Norte:checked ~ .e #imagenes .Oeste, .grid #Norte:checked ~ .e #imagenes .CABA {
-  display: none; }
-
-#Oeste:checked ~ #imagenes .Norte, #Oeste:checked ~ #imagenes .CABA {
-  display: none; }
-
-#CABA:checked ~ #imagenes .Oeste, #CABA:checked ~ #imagenes .Norte {
-  display: none; }
-
-#Casa:checked ~ #imagenes .Departamento, #Casa:checked ~ #imagenes .PH {
-  display: none; }
-
-#Oeste:checked ~ #imagenes .Norte, #Oeste:checked ~ #imagenes .CABA {
-  display: none; }
-
-#CABA:checked ~ #imagenes .Oeste, #CABA:checked ~ #imagenes .Norte {
-  display: none; }
-
->>>>>>> f6f18ab8efa81b61bc2b25971c2be4a6bb01a637
+h5{
+  text-align:center ;
+}
 .contacto {
-  width: 100%;
+  width: 80%;
   display: flex;
-  /* que salte el renglon y no modifique el tamaño del contenedor */
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-content: space-between; }
-  .contacto .item {
-    width: 24%;
-    margin-left: 3%;
-    margin-bottom: 25px;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.22);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: flex-start;
-    transition: all .4s; }
-    .contacto .item img {
-      width: 100%; }
+margin-left: 20% ;  /* que salte el renglon y no modifique el tamaño del contenedor */
+  flex-wrap: row;
+
+ }
+
+    .contacto img {
+      width: 100%;
+      height: 100px;
+    }
     .contacto .item a {
       display: block;
       width: 100%;
@@ -414,3 +240,14 @@ h1 {
       color: #fff;
       text-align: center;
       text-decoration: none; }
+
+      .imgnormalizada img{
+        width: 100%;
+
+        height: 500px;
+      }
+      .carousel {
+        margin-right: 20% ;
+        margin-left: 11% ;
+
+      }
