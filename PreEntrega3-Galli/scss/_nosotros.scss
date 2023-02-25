@@ -1,0 +1,21 @@
+
+
+.nosotros {
+    position: relative;
+    top: 10%;
+
+    iframe{
+    position: relative;
+    left: 25%;
+    @include grande{
+        left: 12%;
+    }
+    @include tablet{
+        left: 1%;
+    }
+
+  }
+  p{
+    font-size: 2rem;
+  }
+}

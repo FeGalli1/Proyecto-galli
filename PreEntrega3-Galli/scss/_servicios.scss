@@ -1,5 +1,5 @@
 @import "vari";
-
+@import "media-queris";
 
 /*////////Servicios//////*/
 
@@ -19,14 +19,13 @@
     }
     p{ 
 
-        font-size: $tam-letra;
-        color: $color-Fondo;
+        font-size: 0;
+        color: $color-Letra;
         position: absolute;
-    
         left: 5%;
     }
-    p:hover{
-        color: $color-Letra;
+    :hover p{
+        font-size: $tam-letra;
     }
     a{
         font-size: $tam-letra;
@@ -64,9 +63,11 @@
 /*//// TRANSITION //// */
 
 .transition:hover {
-    height: 250px;
+    height: 400px;
+    @include tablet{
+        height: 500px;      
+    }
 }
-
 .boton {
     background-color: $colot-blanco ;
     width: 100%;

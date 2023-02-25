@@ -33,6 +33,7 @@ body {
                 position: relative;
             }
     }
+}
 
     .a{
         grid-area: head;
@@ -42,13 +43,6 @@ body {
         grid-area: filtro;
     }
     
-    .d{
-        grid-area: borde;
-        img {
-            width: 100%;
-            margin: 10px;
-        }
-    }
     .e{
         grid-area: main;
         display: flex;
@@ -57,14 +51,6 @@ body {
         img{
             width: 20%;
         }
-    }
-    .f{
-        grid-area: borde2;
-        img {
-            width: 100%;
-            margin: 10px;
-        }
-    
     }
     .g{
         grid-area: foot;
@@ -76,7 +62,6 @@ body {
             margin: 10px;
         }
     }
-  }
 
 
 
@@ -84,12 +69,5 @@ body {
     background-color: blue;
 }
 
-
-
- @media (max-width: 945px)
- {
-   
-   
- }
  
 /*////////GRIDS//////*/

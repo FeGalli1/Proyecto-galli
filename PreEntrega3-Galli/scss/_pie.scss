@@ -13,9 +13,8 @@
     color: aquamarine;
     bottom: 100%;
  
-}
 
-.pie p{
+p{
     font-size: 1rem;
     color: black;
     position: absolute;
@@ -24,18 +23,19 @@
     transform: translate(50%, 50%);
    
 }
-.pie h1{
+h1{
     font-size: 2rem;
     color: black;
     position: absolute;
     top: 25%;
     left: 45%;
 }
-.pie h2{
+h2{
     font-size: 2rem;
     color: black;
     position: absolute;
     top: 90%;
     left: 7%;
+}
 }
 /*////FINAL PIE//////*/
