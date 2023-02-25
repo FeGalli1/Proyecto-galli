@@ -100,7 +100,7 @@
 .grid {
   display: grid;
   grid-template-columns: 180px auto 180px;
-  grid-template-rows: auto auto  900px auto;
+  grid-template-rows: auto auto  1400px auto;
   grid-column-gap: 100px;
   grid-row-gap: 20px;
   background-color: #87CEEB;
@@ -114,7 +114,7 @@
       grid-row-gap: 20px;
       background-color: #87CEEB;
       
-      grid-template-areas: "head head head" "filtro filtro filtro" "borde main borde2" "foot foot foot"; }
+      grid-template-areas: "head head head" "filtro filtro filtro" "main main main" "foot foot foot"; }
       .grid .g p {
         font-size: 0.5rem;
         color: #000000;
