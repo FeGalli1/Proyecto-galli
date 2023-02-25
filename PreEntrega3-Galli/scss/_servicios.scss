@@ -24,9 +24,7 @@
         position: absolute;
         left: 5%;
     }
-    :hover p{
-        font-size: $tam-letra;
-    }
+
     a{
         font-size: $tam-letra;
         right: 5%;
@@ -37,6 +35,9 @@
         font-size: 1.4rem;
         color: $color-Letra;
     }
+}
+.recuadro:hover p{
+    font-size: $tam-letra;
 }
 
 .vender {
