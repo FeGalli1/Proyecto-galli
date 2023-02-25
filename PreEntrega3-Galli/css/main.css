@@ -44,6 +44,12 @@
 .transition:hover {
   height: 400px;
  }
+ @media screen and (max-width: 945) {
+  
+  .transition:hover {
+    height: 500px;
+  }
+ }
 
 .boton {
   background-color: #FFFFFF;
