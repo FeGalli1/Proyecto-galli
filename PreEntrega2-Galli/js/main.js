@@ -1,10 +1,31 @@
 //VARIABLES GLOBALES
-let stock=40,modifica=0,user=1;
+let stock=40,user=1;
+const base= Math.random*1000;//maximo de productos admitidos 1000. este seria como su id
+let codigos=0;
+
+//CLASES
+class producto{
+    //constructor
+    constructor(nombre,stock=0){
+    this.nombre=nombre;
+    if(isNaN(stock)==false && parseInt(stock)>=0)
+    {
+        this.stock=parseInt(stock);
+    }else{
+        this.stock=0;
+    }
+    const codigo= base+codigos;
+    codigos++;
+    }
+}
+
+
+
 
 
 function menuOpciones(opcion)
 {
-    let retorno=1;
+    let retorno=1,modifica=0;
 
     switch (opcion) {
         case "stock":
@@ -74,5 +95,6 @@ function nuevoDato(){
 //FUNCION PRINCIPAL, PIDE EL DATO Y PROCESA. EL WHILE FUNCIONA DURA HASTA QUE EL USUARIO DECIDA TERMINAR
 while(user!=0)
 {
-    user=menuOpciones(nuevoDato());
+    
+    //user=menuOpciones(nuevoDato());
 }
