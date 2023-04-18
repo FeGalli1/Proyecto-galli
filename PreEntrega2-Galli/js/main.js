@@ -111,4 +111,12 @@ pc.imprimirConsola();
 const ps4 = new producto ("ps4",2);
 
 ps4.imprimirConsola();
+let largo
+do{
+
+    largo = prompt("cuantos productos quiere agregar?" );
+
+}while( isNaN(largo)==true)
+
+
 alert(lechuga.nombre  +" "+ lechuga.stock  +" "+ lechuga.codigo +" "+ codigos + '\n' +pc.nombre  +" "+ pc.stock  +" "+ pc.codigo +" "+ codigos + '\n' +ps4.nombre  +" "+ ps4.stock  +" "+ ps4.codigo +" "+ codigos );
