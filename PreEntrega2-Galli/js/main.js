@@ -1,6 +1,6 @@
 //VARIABLES GLOBALES
 let stock=40,user=1;
-const base= Math.random*1000;//maximo de productos admitidos 1000. este seria como su id
+let base= Math.round(Math.random() * 1000000);//maximo de productos admitidos 1000000. este seria como su id
 let codigos=0;
 
 //CLASES
@@ -14,8 +14,12 @@ class producto{
     }else{
         this.stock=0;
     }
-    const codigo= base+codigos;
+    this.codigo = base+codigos;
     codigos++;
+    }
+
+    imprimirConsola(){
+        console.log(this.nombre  +", stock: "+ this.stock  +" , id: "+ this.codigo +", cantidad de codigos usasdos"+ codigos);
     }
 }
 
@@ -93,8 +97,18 @@ function nuevoDato(){
 
 
 //FUNCION PRINCIPAL, PIDE EL DATO Y PROCESA. EL WHILE FUNCIONA DURA HASTA QUE EL USUARIO DECIDA TERMINAR
-while(user!=0)
+/*while(user!=0)
 {
-    
+
     //user=menuOpciones(nuevoDato());
-}
+}*/
+const lechuga = new producto ("lechuga",5);
+lechuga.imprimirConsola();
+
+const pc = new producto ("pc",10);
+pc.imprimirConsola();
+
+const ps4 = new producto ("ps4",2);
+
+ps4.imprimirConsola();
+alert(lechuga.nombre  +" "+ lechuga.stock  +" "+ lechuga.codigo +" "+ codigos + '\n' +pc.nombre  +" "+ pc.stock  +" "+ pc.codigo +" "+ codigos + '\n' +ps4.nombre  +" "+ ps4.stock  +" "+ ps4.codigo +" "+ codigos );
