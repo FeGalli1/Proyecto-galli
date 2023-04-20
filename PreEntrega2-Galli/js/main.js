@@ -87,7 +87,7 @@ function menuOpciones(opcion)
             {
                 
                 
-                let marca = nuevoDato("se encontraron mas de un producto con esa carracteristica, le voy a pedir que ingrese la marca solo");
+                let marca = nuevoDato("se encontraron mas de un producto con esa carracteristica, le voy a pedir que ingrese SOLO la marca");
                 let nombre =nuevoDato("ahora ingrese el nombre");
                 resultado = gondola.findIndex( producto => producto.nombre === nombre && producto.marca === marca );
                 console.table(resultado);
@@ -118,7 +118,7 @@ function menuOpciones(opcion)
             console.table(resultado);
             if(resultado.length>1)
             {
-                let marca = nuevoDato("se encontraron mas de un producto con esa carracteristica, le voy a pedir que ingrese la marca solo");
+                let marca = nuevoDato("se encontraron mas de un producto con esa carracteristica, le voy a pedir que ingrese SOLO la marca");
                 let nombre =nuevoDato("ahora ingrese el nombre");
                 resultado = gondola.findIndex( producto => producto.nombre === nombre && producto.marca === marca );
                 console.table(resultado);
@@ -160,7 +160,7 @@ function menuOpciones(opcion)
             retorno=0;
             break;
         case "ayuda":
-            alert("Lista de comandos: "+ '\n' + " \"stock\" : Te dira el stock disponible " + '\n' + "\"poner\" : Para agregar \"X\" stock" + '\n' + "\"sacar\" : Para retirar cantidad \"X\" de stock" + '\n' + "\"terminar\" : Para terminar el proceso");
+            alert("Lista de comandos: "+ '\n' + " \"stock\" : Te dira el stock disponible de x producto" + '\n' + "\"poner\" : Para agregar \"X\" stock" + '\n' + "\"sacar\" : Para retirar cantidad \"X\" de stock" + '\n' + "\"terminar\" : Para terminar el proceso");
             break;
         default:
             //EN CASO QUE EL VALOR NO SEA VALIDO
@@ -193,5 +193,5 @@ function nuevoDato(dato = "Ingrese Dato"){
 //FUNCION PRINCIPAL, PIDE EL DATO Y PROCESA. EL WHILE FUNCIONA DURA HASTA QUE EL USUARIO DECIDA TERMINAR
         while(user!=0)
         {
-            user=menuOpciones(nuevoDato('Ingrese una operacion ("poner" "sacar" "ayuda" "terminar"'));
+            user=menuOpciones(nuevoDato('Ingrese una operacion ("stock" "poner" "sacar" "ayuda" "terminar"'));
         }
