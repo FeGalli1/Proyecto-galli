@@ -1,73 +1,158 @@
 //VARIABLES GLOBALES
-let stock=40,user=1;
+let user=1;
 let base= Math.round(Math.random() * 1000000);//maximo de productos admitidos 1000000. este seria como su id
 let codigos=0;
+///////////////////////
 
-//CLASES
+//CLASES//////////////
 class producto{
     //constructor
-    constructor(nombre,stock=0){
-    this.nombre=nombre;
-    if(isNaN(stock)==false && parseInt(stock)>=0)
-    {
-        this.stock=parseInt(stock);
-    }else{
-        this.stock=0;
-    }
-    this.codigo = base+codigos;
-    codigos++;
+    constructor(nombre,stock=0 , marca="generica"){//constructor parametrizado
+        this.marca=marca;
+        this.nombre=nombre;
+        if(isNaN(stock)==false && parseInt(stock)>=0)
+        {
+            this.stock=parseInt(stock);
+        }else{
+            this.stock=0;
+        }
+        this.codigo = base+codigos;
+        codigos++;
+        this.actualizacion = new Date();//solamente se almacena la ultima vez que se agrego stock.
     }
 
     imprimirConsola(){
-        console.log(this.nombre  +", stock: "+ this.stock  +" , id: "+ this.codigo +", cantidad de codigos usasdos"+ codigos);
+        console.log("producto: "+this.nombre  +", Marca: "+ this.marca +", stock: "+ this.stock  +" , id: "+ this.codigo +", ultima actualizacion: "+ this.actualizacion.toLocaleString());
     }
 }
 
 
+///////////////////////////////////////////////
+//ARRAYS//////////////
+const gondola = [
+    new producto ("ps5",12,"sony") , 
+    new producto ("ps4",2,"sony"),
+    new producto ("gameboy",6,"nintendo"),
+    new producto ("notebook",2,"asus"),
+    new producto ("notebook",2,"hp"),
+    new producto ("joystick",10),//si no le pongo marca por defecto deberia ser "generico". eso esta definido en  el constructor
+    new producto ("auriculasres",2,"jbl"),
+    new producto ("parlante",2,"jbl"),
+    new producto ("joystick",6,"sony"),
+];
 
+//////////////////////
+/////////////////FUNCIONES/////////////////////
 
+function error(codigoError)
+{
+    switch (codigoError) {
+        case 1:
+            console.log("ERROR EN EL INGRESO DE DATOS DE LA BUSQUEDA. \n CODIGO DE ERROR: "+1);
+            break;
+        case 2:
+            console.log("ERROR!! NO RECONOCE EL VALOR COMO UN NUMERO. \n CODIGO DE ERROR: "+2);
+            break;
+        default:
+            break;
+    }
+}
 
 function menuOpciones(opcion)
 {
     let retorno=1,modifica=0;
-
+    let mensaje, resultado;
     switch (opcion) {
         case "stock":
-            alert("Hay un stock de: "+stock);
+            mensaje= nuevoDato("igrese el nombre o la marca del producto que quiere consultar, si desea ver todos solo igrese todos");
+            if(mensaje !== "todos" && mensaje !== "todo" )
+            {
+                const resultado = gondola.filter( producto => producto.nombre === mensaje || producto.marca === mensaje );
+                console.table(resultado); 
+            
+            
+            }else if(mensaje == "todos" || mensaje == "todo" ){
+                const resultado = gondola.filter( producto => producto.stock !== -1 );
+                console.table(resultado); 
+            }else{
+                error(1);
+            }
             break;
         case "poner":
-            modifica = prompt('Cuanto deseas poner?');
-            //CHEQUE QUE SOLO SE INGRESO UN NUMERO
-            if(isNaN(modifica)==false && parseInt(modifica)>=0)
+            
+             mensaje = nuevoDato("igrese el nombre o la marca del producto al que quiere agregar mercaderia");
+             resultado = gondola.filter( producto => producto.nombre === mensaje || producto.marca === mensaje );
+            console.table(resultado);
+            if(resultado.length>1)
             {
-                //CONVIERTO EL NUMERO A INT Y LO SUMO AL STOCK
-                stock += parseInt(modifica);
-                alert("Hay un stock de: "+stock);
+                
+                
+                let marca = nuevoDato("se encontraron mas de un producto con esa carracteristica, le voy a pedir que ingrese la marca solo");
+                let nombre =nuevoDato("ahora ingrese el nombre");
+                resultado = gondola.findIndex( producto => producto.nombre === nombre && producto.marca === marca );
+                console.table(resultado);
+                
+                if( isNaN(mensaje = nuevoDato("¿Cuanto desea agregar?"))==false)
+                {
+                    gondola[resultado].stock += parseInt(mensaje);
+                    gondola[resultado].actualizacion =  new Date();
+                    console.log("nuevo valor de stock = "+ gondola[resultado].stock);
+                }else{
+                    error(2);
+                }
             }else{
-                alert("El valor ingresado no fue valido");
-                //MANDO EL ERROR POR CONSOLA PARA HACER SEGUIMIENTO
-                console.log("Se ingreso erroneamente "+ modifica);
+                resultado = gondola.findIndex( producto => producto.nombre === mensaje || producto.marca === mensaje );
+                if( isNaN(mensaje = nuevoDato("¿Cuanto desea agregar?"))==false)
+                {
+                    gondola[resultado].stock += parseInt(mensaje);
+                    gondola[resultado].actualizacion =  new Date();
+                    console.log("nuevo valor de stock = "+ gondola[resultado].stock);
+                }else {
+                    error(2);
+                }
             }
             break;
         case "sacar":
-            modifica = prompt('Cuanto deseas sacar?');
-            //CHEQUE QUE SOLO SE INGRESO UN NUMERO
-            if(isNaN(modifica)==false && parseInt(modifica)>=0)
+             mensaje = nuevoDato("igrese el nombre o la marca del producto al que quiere sacar mercaderia");
+             resultado = gondola.filter( producto => producto.nombre === mensaje || producto.marca === mensaje );
+            console.table(resultado);
+            if(resultado.length>1)
             {
-                //CONVIERTO EL NUMERO A INT Y VERIFICO QUE NO SEA MAYOR AL STOCK
-                //SI ES MAYOR NO SE PUEDE RESTAR Y SE DEVUELVE ERROR Y LA CANTIDAD DE STOCK QUE HAY PARA QUE LA PROXIMA RESTE MENOS
-                if(stock < parseInt(modifica))
+                let marca = nuevoDato("se encontraron mas de un producto con esa carracteristica, le voy a pedir que ingrese la marca solo");
+                let nombre =nuevoDato("ahora ingrese el nombre");
+                resultado = gondola.findIndex( producto => producto.nombre === nombre && producto.marca === marca );
+                console.table(resultado);
+                
+                if( isNaN(mensaje = nuevoDato("¿Cuanto desea sacar?"))==false)
                 {
-                    alert("No hay stock suficiente para restar eso. El stock es de "+stock);
-                    break;
+                    if(gondola[resultado].stock >= parseInt(mensaje))
+                    {
+                        gondola[resultado].stock -= parseInt(mensaje);
+                        console.log("nuevo valor de stock = "+ gondola[resultado].stock);
+                    }else{
+                        error(3);
+                        gondola[resultado].stock = 0;
+                        console.log("nuevo valor de stock = "+ gondola[resultado].stock);
+                    }
                 }else{
-                    //SI SE PUEDE RESTAR SIN PROBLEMA LO HACE Y DEVUELVE CUANTO QUEDO
-                    stock -= parseInt(modifica);
-                    alert("Hay un stock de: "+stock);
+                    error(2);
                 }
             }else{
-                alert("El valor ingresado no fue valido");
-                console.log("Se ingreso erroneamente "+ modifica);
+                resultado = gondola.findIndex( producto => producto.nombre === mensaje || producto.marca === mensaje );
+                if( isNaN(mensaje = nuevoDato("¿Cuanto desea sacar?"))==false)
+                {
+                    if(gondola[resultado].stock >= parseInt(mensaje))
+                    {
+                        gondola[resultado].stock -= parseInt(mensaje);
+                        console.log("nuevo valor de stock = "+ gondola[resultado].stock);
+                    }else{
+                        error(3);
+                        gondola[resultado].stock = 0;
+                        console.log("nuevo valor de stock = "+ gondola[resultado].stock);
+                    }
+                }else {
+                    error(2);
+                }
             }
             
             break;
@@ -85,38 +170,28 @@ function menuOpciones(opcion)
     return retorno;
 }
 
-function nuevoDato(){
+function nuevoDato(dato = "Ingrese Dato"){
     //RECIBIMOS LA OPERACION QUE SE DESEA REALIZAR
-    let retorno = prompt('Ingrese una operacion ("poner" "sacar" "ayuda" "terminar"');
+    let retorno = prompt(dato);
     //CONVERTIMOS EL STRING EN MINUSCULA PARA ACEPTAR PALABRAS CON MAYUSCULA SIN PROBLEMA
     retorno = retorno.toLowerCase();
     //DEVOLVEMOS LA PALABRA INGRESADA EN MINUSCULA LISTA PARA USARSE
     return retorno;
 }
 
+//////////////////////////////////////////////
+
+
+
+
+
+
+
+//while(1){//siempre es verdadero solo salgo con un break
 
 
 //FUNCION PRINCIPAL, PIDE EL DATO Y PROCESA. EL WHILE FUNCIONA DURA HASTA QUE EL USUARIO DECIDA TERMINAR
-/*while(user!=0)
-{
-
-    //user=menuOpciones(nuevoDato());
-}*/
-const lechuga = new producto ("lechuga",5);
-lechuga.imprimirConsola();
-
-const pc = new producto ("pc",10);
-pc.imprimirConsola();
-
-const ps4 = new producto ("ps4",2);
-
-ps4.imprimirConsola();
-let largo
-do{
-
-    largo = prompt("cuantos productos quiere agregar?" );
-
-}while( isNaN(largo)==true)
-
-
-alert(lechuga.nombre  +" "+ lechuga.stock  +" "+ lechuga.codigo +" "+ codigos + '\n' +pc.nombre  +" "+ pc.stock  +" "+ pc.codigo +" "+ codigos + '\n' +ps4.nombre  +" "+ ps4.stock  +" "+ ps4.codigo +" "+ codigos );
+        while(user!=0)
+        {
+            user=menuOpciones(nuevoDato('Ingrese una operacion ("poner" "sacar" "ayuda" "terminar"'));
+        }
