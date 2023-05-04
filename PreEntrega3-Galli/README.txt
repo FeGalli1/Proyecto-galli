@@ -1,5 +1,5 @@
 # Project Title
-"Tienda generica"
+"Tienda generica de productos unicos"
 
 Curso de Javascript 
 - 39505 (2023)
@@ -11,12 +11,9 @@ Curso de Javascript
 
 ## Documentation
 
-La pagina sera de una tiende de productos generica.
-Tiene el punto de vista desde el administrador del la pagina pudiendo modificar los datos de stock de los productos que ya estan precargados
+La pagina sera de una tiende de productos Unicos.
+Tiene un pequeño sistema que permite buscar productos en una lista y mostrar los resultados en tiempo real. El usuario puede ingresar un término de búsqueda y los productos que coincidan con ese término se mostrarán automáticamente en la página.
 
-Tiene una calse "producto" que contiene los datos como "nombre", marca, id y ultima vez que alguien AGREGO stock, no se actualiza cuando alguien saca.
-Se maneja a traves de un array llamado "gondola" que contiene todos lo productos.
+Solo fue configurado el html "inicio" y todavia nu fueron configuradas las opciones de la barra superior de navegacion pero si las opciones que usaremos.
 
-## Devolucion de datos
-
-Los datos se devuelve por consola y ciertos errores quedan registrados.
+Solamente usamos el json pra guardar los datos del carrito, los resultados de la busqueda no los consideramos importantes.
