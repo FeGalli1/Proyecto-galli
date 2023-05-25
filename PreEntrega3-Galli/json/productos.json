@@ -1,0 +1,33 @@
+{
+"productos" : [
+    { 
+        "id": 1,
+        "nombre": "Pexels Steve Johnson",
+        "precio": 15000,
+        "imagen": "Cuadros/pexels-steve-johnson.jpg",
+        "descripcion": "Arte luchi  moderno virtual. Esta obra fue publicada el 9 de agosto del 2021 por Steve Johnson en pexels. Fue diseñada virtualmente con el software Adobe Photoshop."
+    },
+    {
+        "id": 2,
+        "nombre": "Costa En Santa Cristina",
+        "precio": 94000,
+        "imagen": "Cuadros/COSTA EN SANTA CRISTINA.jpg",
+        "descripcion": "Una obra del autor Joaquin Sorolla Y Bastida y fue hecha en el año 1914. Esta hecha con la tecnica de óleo sobre lienzo y tiene una dimension de 99x74 cm"
+    },
+ {
+      "id": 3,
+      "nombre": "Tintas Tintas y Tintas",
+      "precio": 10000,
+      "imagen": "Cuadros/Tintas-tintas-y-tintas.jpg",
+      "descripcion": "Una obra de la autora Luchi Sanguinetti. El color y la forma prevalecen en mi visión. Aparece reiteradamente formas percibidas en el pasado, las cuales han dejado huella en mi memoria."
+  },
+  {
+      "id": 4,
+      "nombre": "On The Road From Moret",
+      "precio": 11000,
+      "imagen": "Cuadros/Alfred Sisley On the Road from Moret.jpg",
+      "descripcion": "Una obra del autor Alfred Sisley y fue hecha en el año 1882.El dibujo lleva una inscripción que identifica el lugar como el camino de Moret a Sainte-Mammès. Tiene un tamaño de 54 x 73 cm"
+      
+  }       
+]
+}

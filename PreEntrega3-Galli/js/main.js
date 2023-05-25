@@ -1,36 +1,23 @@
-    // Variables
-    const baseDeDatos = [
-        {
-            id: 1,
-            nombre: 'Pexels Steve Johnson',
-            precio: 15000,
-            imagen: 'Cuadros/pexels-steve-johnson.jpg',
-            descripcon: 'Arte moderno virtual. Esta obra fue publicada el 9 de agosto del 2021 por Steve Johnson en "pexels". Fue diseñada virtualmente con el software "Adobe Photoshop". '
-        },
-        {
-            id: 2,
-            nombre: 'Costa En Santa Cristina',
-            precio: 94000,
-            imagen: 'Cuadros/COSTA EN SANTA CRISTINA.jpg',
-            descripcon: 'Una obra del autor "Joaquin Sorolla Y Bastida" y fue hecha en el año 1914. Esta hecha con la tecnica de óleo sobre lienzo y tiene una dimension de 99x74 cm'
-        },
-    
-        {
-            id: 3,
-            nombre: 'Tintas Tintas y Tintas',
-            precio: 10000,
-            imagen: 'Cuadros/Tintas-tintas-y-tintas.jpg',
-            descripcon: 'Una obra de la autora "Luchi Sanguinetti". El color y la forma prevalecen en mi visión. Aparece reiteradamente formas percibidas en el pasado, las cuales han dejado huella en mi memoria. Hay trazo que se repite y la lectura es múltiple. Realidades con diversas percepciones.'
-        },
-        {
-            id: 4,
-            nombre: 'On The Road From Moret',
-            precio: 11000,
-            imagen: 'Cuadros/Alfred Sisley On the Road from Moret.jpg',
-            descripcon: 'Una obra del autor "Alfred Sisley" y fue hecha en el año 1882.El dibujo lleva una inscripción que identifica el lugar como el camino de Moret a Sainte-Mammès. Tiene un tamaño de 54 x 73 cm'
-            
-        }       
-    ];
+let baseDeDatos; // Movido dentro del bloque fetch
+fetch('./json/productos.json')
+  .then(response => response.json())
+  .then(data => {
+    // Aquí se almacenan los datos en un array de objetos
+    baseDeDatos = data.productos.map(producto => {
+      return {
+        id: producto.id,
+        nombre: producto.nombre,
+        precio: producto.precio,
+        imagen: producto.imagen,
+        descripcion: producto.descripcion // Corregido
+      };
+    });
+//renderizo los dato una vez terminado de obtenerlos del json
+    renderizarProductos();
+  })
+  .catch(error => {
+    console.log('Error:', error);
+  });
 
     //Array del carrito que empieza vacio
     let carrito = [];
@@ -46,6 +33,9 @@
     // Funciones
 
 
+    
+    
+
     //Esta funcion muestra los productos a partir de la palabra que se haya ingresado, de no ingresar nada se mostrara todo.
     function renderizarProductos(palabraClave) {
         const listaProductos = document.getElementById("items");
@@ -54,53 +44,62 @@
         // Vaciar contenido del elemento HTML de esta manera cada vez que la funcion se llame se limpie lo anterior y no se vaya acumulando
         listaProductos.innerHTML = "";
 
+        
         //busca por todo el array si encuentra coicidencia con la palabra clave
           const productosFiltrados = buscarProductos(palabraClave);
           
           productosFiltrados.forEach((info) => {
           // Estructura
           const miNodo = document.createElement('div');
-          miNodo.classList.add('col','card', 'shadow-ms');
+          miNodo.classList.add('col', 'card-container');
+
+
+
+          const miNodo1 =document.createElement('div');
+          miNodo1.classList.add('card', 'shadow');
+          miNodo1.addEventListener('click',flip)
           const miNodoImagen = document.createElement('img');
           miNodoImagen.classList.add('img-fluid');
       
           miNodoImagen.setAttribute('src', info.imagen);
       
           // Body
-          const miNodoCardBody = document.createElement('div');
-          miNodoCardBody.classList.add('card-body');
-          // Titulo
+          const miNodoFront =document.createElement('div');
+          miNodoFront.classList.add('front','card-body');
+          const miNodoBack =document.createElement('div');
+          miNodoBack.classList.add('back','card-body');
+
           const miNodoTitle = document.createElement('h5');
           miNodoTitle.classList.add('card-title');
           miNodoTitle.textContent = info.nombre;
-          // Imagen
-      
-          // Precio
           const miNodoDescripcion = document.createElement('p');
-          miNodoDescripcion.classList.add('card-text');
-          miNodoDescripcion.textContent = `${info.descripcon}`;
-          // Boton 
+          miNodoDescripcion.textContent = info.descripcion;
+
+          const miNodoSeccionBoton = document.createElement('div');
+          miNodoSeccionBoton.classList.add('bottom-section');
+
           const miNodoBoton = document.createElement('button');
           miNodoBoton.classList.add('btn', 'btn-primary');
           miNodoBoton.textContent = '+';
           miNodoBoton.setAttribute('marcador', info.id);
           miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
-          const miNodoPrecio = document.createElement('p');
-         
-            miNodoPrecio.classList.add('card-text');
-            miNodoPrecio.textContent = `${info.precio}${divisa}`;
-            // Insertamos
-            miNodoCardBody.appendChild(miNodoImagen);
-            miNodoCardBody.appendChild(miNodoTitle);
-            miNodoCardBody.appendChild(miNodoDescripcion);
-            miNodoCardBody.appendChild(miNodoPrecio);
-            miNodoCardBody.appendChild(miNodoBoton);
-            miNodo.appendChild(miNodoCardBody);
+          const miNodoPrecio = document.createElement('h6');
+          miNodoPrecio.textContent = info.precio + divisa;
+
+            miNodoFront.appendChild(miNodoImagen);
+            miNodoBack.appendChild(miNodoTitle);
+            miNodoBack.appendChild(miNodoDescripcion);
+            miNodoSeccionBoton.appendChild(miNodoPrecio);
+            miNodoSeccionBoton.appendChild(miNodoBoton);
+        //    miNodoCardBody.appendChild(miNodoDescripcion);
+            miNodoBack.appendChild(miNodoSeccionBoton);
+            miNodo.appendChild(miNodo1);
+            miNodo1.appendChild(miNodoFront);
+            miNodo1.appendChild(miNodoBack);
             DOMitems.appendChild(miNodo);
         });
     }
 
-    
     //Evento para añadir un producto al carrito de la compra
     function anyadirProductoAlCarrito(evento) {
         // Anyadimos el Nodo a nuestro carrito
@@ -208,29 +207,75 @@
     }
 
         //esta fucnion busca en la base de datos la palabra clave, si no recibe nada es que se ejecuto por primera vez o con el bucador vacio y devolvemos todos los productos
-    function buscarProductos(criterio) {
-        if (!criterio) {
-          // Si no hay criterio de búsqueda, devolvemos el array original
-          return baseDeDatos;
-        } else {
-          // Convertimos el criterio a minúsculas para comparar sin importar las mayúsculas
-          const criterioMinusculas = criterio.toLowerCase();
-          // Filtramos los elementos del array que contengan el criterio de búsqueda
-          const resultadoBusqueda = baseDeDatos.filter((producto) => {
-            return (
-              producto.nombre.toLowerCase().includes(criterioMinusculas) ||
-              (producto.descripcon &&
-                producto.descripcon.toLowerCase().includes(criterioMinusculas))
-            );
-          });
-          return resultadoBusqueda;
+   
+// Definición de buscarProductos antes de utilizarlo en el evento
+function buscarProductos(criterio) {
+    if (!criterio) {
+      // Si no hay criterio de búsqueda, devolvemos el array original
+      return baseDeDatos;
+    } else {
+      // Convertimos el criterio a minúsculas para comparar sin importar las mayúsculas
+      const criterioMinusculas = criterio.toLowerCase();
+      // Filtramos los elementos del array que contengan el criterio de búsqueda
+      const resultadoBusqueda = baseDeDatos.filter((producto) => {
+        return (
+          producto.nombre.toLowerCase().includes(criterioMinusculas) ||
+          (producto.descripcion &&
+            producto.descripcion.toLowerCase().includes(criterioMinusculas))
+        );
+      });
+      return resultadoBusqueda;
+    }
+
+}
+
+//Buscador 
+const formulario = document.querySelector('#formulario');
+const boton = document.querySelector('#boton');
+
+const filtrar = () => {
+  let hayDato = 0;
+  const texto = formulario.value.toLowerCase();
+  for (let producto of baseDeDatos) { // Reemplazado 'productos' por 'baseDeDatos'
+    let nombre = producto.nombre.toLowerCase();
+    let descripcion = producto.descripcion.toLowerCase();
+    if (nombre.indexOf(texto) !== -1 || descripcion.indexOf(texto) !== -1) {
+      renderizarProductos(texto);
+      hayDato = 1;
+    }
+  }
+  if (hayDato == 0) {
+    renderizarProductos('');
+  }
+}
+
+// Variable global para controlar si se está reproduciendo la animación
+let playing = false;
+
+// Función para voltear la tarjeta
+function flip() {
+    if (playing) return;
+    playing = true;
+    anime({
+        targets: this, 
+        scale: [{ value: 1 }, { value: 1.3 }, { value: 1, delay: 250 }],
+        rotateY: { value: "+=180", delay: 200 },
+        easing: "easeInOutSine",
+        duration: 400,
+        complete: function(anim) {
+            playing = false;
         }
-      }
-      
+    });
+}
+
+
     // Eventos
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+    boton.addEventListener('click', filtrar);
 
     // Inicio
+    
     cargarCarritoDeLocalStorage();
-    renderizarProductos();
     renderizarCarrito();
+
+

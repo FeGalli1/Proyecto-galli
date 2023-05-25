@@ -44,3 +44,11 @@
     font-size: 3.5rem;
   }
 }
+
+.card-body{
+  align-items: center;
+}
+.card-body button{
+  height: 40px;
+
+}

@@ -1,0 +1,139 @@
+
+.card-container {
+  position: relative;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+}
+
+.front {
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  color: #fff;
+  background-color: #22b3d3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.back h5 {
+  color: #000;
+  padding: 0 10%;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Open-Dyslexic', sans-serif;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.back p {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Open-Dyslexic', sans-serif;
+  margin-top: 10px;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.bottom-section h6 {
+  color: #000;
+  font-size: 15px;
+  font-family: 'Open-Dyslexic', sans-serif;
+  margin-right: 10px;
+}
+
+.bottom-section button {
+  position: relative;
+  bottom: 0%;
+}
+
+@media screen and (max-width: 1080px) {
+  /* Estilos para pantallas de hasta 1080px de ancho */
+
+  .back h5,
+  .back p {
+    font-size: 10px; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  /* Estilos para pantallas de hasta 768px de ancho */
+
+  .back h5,
+  .back p {
+    font-size: 10px; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+  }
+  /* modifico el diseño del boton y lo coloco debajo del precio*/
+  .bottom-section {
+    flex-direction: column; /* Cambiar la dirección de los elementos a una columna */
+    align-items: flex-start; /* Alinear los elementos a la izquierda */
+    justify-content: center; /* Centrar verticalmente los elementos */
+  }
+
+  .bottom-section h6,
+  .bottom-section button {
+    width: 100%; /* Ocupar el ancho completo de la columna */
+    text-align: left; /* Alinear el texto a la izquierda */
+    margin-right: 0; /* Eliminar el margen derecho */
+    margin-bottom: 10px; /* Agregar margen inferior entre los elementos */
+  }
+
+}
+@media screen and (max-width: 600px) {
+  /* Estilos para pantallas de hasta 768px de ancho */
+
+  .back h5,
+  .back p {
+    font-size: 20px; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+  }
+
+}
+
+
+@media screen and (max-width: 480px) {
+  /* Estilos para pantallas de hasta 480px de ancho */
+
+  .back h5,
+  .back p {
+    font-size: 14px; /* Reducir aún más el tamaño de fuente para pantallas más pequeñas */
+  }
+}
