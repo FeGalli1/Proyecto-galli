@@ -14,6 +14,12 @@ fetch('./json/productos.json')
     });
 //renderizo los dato una vez terminado de obtenerlos del json
     renderizarProductos();
+        
+    cargarCarritoDeLocalStorage();
+    renderizarCarrito();
+
+
+
   })
   .catch(error => {
     console.log('Error:', error);
@@ -274,8 +280,3 @@ function flip() {
     boton.addEventListener('click', filtrar);
 
     // Inicio
-    
-    cargarCarritoDeLocalStorage();
-    renderizarCarrito();
-
-

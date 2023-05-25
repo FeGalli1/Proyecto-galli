@@ -12,8 +12,8 @@ Curso de Javascript
 ## Documentation
 
 La pagina sera de una tiende de productos Unicos.
-Tiene un pequeño sistema que permite buscar productos en una lista y mostrar los resultados en tiempo real. El usuario puede ingresar un término de búsqueda y los productos que coincidan con ese término se mostrarán automáticamente en la página.
+En este caso elegi cuadros, hay muchas cosas qeu se podian hacer pero fui priorizando llegar a la entrega.
+los productos no estan diseñados para venderse a traves de internet sino mas como una exposision abierta
 
-Solo fue configurado el html "inicio" y todavia nu fueron configuradas las opciones de la barra superior de navegacion pero si las opciones que usaremos.
-
-Solamente usamos el json pra guardar los datos del carrito, los resultados de la busqueda no los consideramos importantes.
+Los productos se almacenan en un .json que funciona como una api.
+Solamente las cosas del carrito son guardadas en el storage.
